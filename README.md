@@ -7,6 +7,7 @@ First a Vagrant script creates two Ubuntu Raring (13.04) VMs - a controller and 
 
 Vagrant then calls an Ansible provisioner script to put any required packages and repositories in place. It installs Open vSwitch and clones the Floodlight and devstack git repos. It also copies a devstack localrc to each node. These localrcs are already customised for this scenario. It also copies a script named ovs-init.sh that you must run before running devstack on each node. It creates the br-int bridge, points it at Floodlight, and connects eth2.
 
+![alt text](https://docs.google.com/drawings/d/1dmE_s5KD9TRYV9Ee8pGgfdbogDDevuNI5Nue2y3SN7I/edit?usp=sharing "diagram")
 
 Requirements
 ------------
@@ -14,7 +15,6 @@ Requirements
 * [Vagrant](http://www.vagrantup.com/) (works with 1.2)
 * [Ansible](http://www.ansibleworks.com/) (works with 1.2)
 * [VirtualBox](https://www.virtualbox.org/) (works with 4.2)
-
 
 Steps
 -----
@@ -29,7 +29,7 @@ After the nodes are up, build and run the Floodlight controller:
     cd floodlight; ant
     java -jar target/floodlight.jar -cf src/main/resources/quantum.properties
 
-Start a new console and run devstack on the controller.:
+Start a new console and run devstack on the controller:
 
     vagrant ssh controller
     sudo ./ovs-init.sh
@@ -48,7 +48,7 @@ After, check the [screens](http://www.samsarin.com/blog/2007/03/11/gnu-screen-wo
 
     ./rejoin-stack.sh
 
-Horizon should be at [URL](http://192.168.2.10). user=admin, password=password. Change to tenant demo to see the network name "private" that was created by devstack.
+Horizon should be at [http://192.168.2.10](http://192.168.2.10). Login with user=admin and password=password. Change to tenant demo to see the network name "private" that was created by devstack.
 Tip - create a new flavor with just 64MB of RAM, as that is all the cirros image needs. Start a VM on "private" and use the VNC console to check that it gets an IP from DHCP.
 
 Or use the Nova and Neutron CLI
