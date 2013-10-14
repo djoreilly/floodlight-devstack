@@ -1,0 +1,2 @@
+controller ansible_ssh_host=192.168.2.10
+compute1 ansible_ssh_host=192.168.2.11

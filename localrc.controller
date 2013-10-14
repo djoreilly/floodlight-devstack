@@ -1,0 +1,33 @@
+MULTI_HOST=true
+
+HOST_IP=192.168.2.10
+
+# add n-novnc if you want to run nova-compute on controller too
+ENABLED_SERVICES=g-api,g-reg,key,n-api,n-crt,n-obj,n-sch,n-cauth,horizon,mysql,rabbit,sysstat,n-cond,n-novnc,n-xvnc
+
+disable_service c-api c-sch c-vol cinder
+enable_service n-vol
+
+disable_service n-net
+enable_service q-svc
+enable_service q-dhcp
+enable_service q-meta
+enable_service quantum
+
+
+# this devstack/localrc does not install or configure ovs. Instead the ansible script installs ovs
+# and copies a script named ~/ovs-init.sh to configures it. You must run ovs-init.sh before stack.sh
+
+Q_PLUGIN=bigswitch_floodlight
+BS_FL_CONTROLLERS_PORT=127.0.0.1:8080
+
+# using a dhcp ip namespace - so need to connect it with a veth when ovs is under openflow control
+Q_OVS_USE_VETH=true
+
+
+DATABASE_PASSWORD=password
+RABBIT_PASSWORD=password
+SERVICE_TOKEN=password
+SERVICE_PASSWORD=password
+ADMIN_PASSWORD=password
+#OFFLINE=true
