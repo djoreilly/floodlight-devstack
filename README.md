@@ -42,6 +42,7 @@ When complete, run devstack on the compute node
     vagrant ssh compute1
     sudo ./ovs-init.sh
     # check that a new switch was seen in the Floodlight console log
+    # there should also be some messages about an inter-switch link being detected
     cd devstack
     ./stack.sh
 
