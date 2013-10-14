@@ -34,7 +34,7 @@
           dest=/home/vagrant/devstack force=no update=no
 
   - name: copy script for configuring openvswitch
-    copy: src=ovs-init.sh dest=/home/vagrant/ovs_init.sh
+    copy: src=ovs-init.sh dest=/home/vagrant/ovs-init.sh
           owner=vagrant group=vagrant mode=0755
 
 
