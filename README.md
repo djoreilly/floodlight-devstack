@@ -33,6 +33,7 @@ Start a new console and run devstack on the controller:
 
     vagrant ssh controller
     sudo ./ovs-init.sh
+    \# check that a new switch was seen in the Floodlight console log
     cd devstack
     ./stack.sh
 
@@ -40,6 +41,7 @@ When complete, run devstack on the compute node
 
     vagrant ssh compute1
     sudo ./ovs-init.sh
+    \# check that a new switch was seen in the Floodlight console log
     cd devstack
     ./stack.sh
 
