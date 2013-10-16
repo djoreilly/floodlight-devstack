@@ -7,7 +7,7 @@ First a Vagrant script creates two Ubuntu Raring (13.04) VMs - a controller and 
 
 Vagrant then calls an Ansible provisioner script to put any required packages and repositories in place. It installs Open vSwitch and clones the Floodlight and devstack git repos. It also copies a devstack localrc to each node. These localrcs are already customised for this scenario. It also copies a script named ovs-init.sh that you must run before running devstack on each node. It creates the br-int bridge, points it at Floodlight, and connects eth2.
 
-![alt text](https://docs.google.com/drawings/d/1dmE_s5KD9TRYV9Ee8pGgfdbogDDevuNI5Nue2y3SN7I/edit?usp=sharing "diagram")
+![image](../blob/master/floodlight-devstack.png)
 
 Requirements
 ------------
